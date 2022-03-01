@@ -1,20 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,Button } from 'react-native';
+import CountContextProvider from './src/countcont';
+import { useCountContext } from './src/countcont';
+import Mainscreen from './src/mainscreen';
 
 export default function App() {
+
+
+  const CountContext= useCountContext();
+  console.log(CountContext);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    
+    <CountContextProvider>
+    <Mainscreen>
+
+    </Mainscreen>
+    </CountContextProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginTop:50,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  welcome: {
+
+        
+    backgroundColor:"yellow"
+
+  },
+  bg: {
+    marginTop:50,
+    backgroundColor: '#ffea00',
+    padding:50
+
+  }
 });
